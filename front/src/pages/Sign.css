@@ -1,0 +1,126 @@
+/*font*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@100;200;300;400;500;600;700;800;900&display=swap');
+body {
+    font-family: 'Roboto Flex', sans-serif; 
+    background-color: #030E2A;
+    
+}
+/*login-container*/
+.login-container {
+    display: flex;               
+    flex-direction: column;      
+    justify-content: center;      
+    align-items: center;         
+    height: 100vh;              
+}
+
+/* Logo styling */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.logo-container img {
+    width: 200px;
+}
+
+
+
+/* Style the login box */
+.login-box {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 320px;
+}
+
+/* Logo styling */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo-container img {
+    width: 200px;
+}
+
+.logo-container h2 {
+    margin: 10px 0;
+    color: #5ECE96;
+    font-weight: bold;
+}
+
+/* Headings and text */
+h3 {
+    color: #5ECE96;
+}
+
+p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Input group styling */
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* Input styling for both email and password */
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Password container adjustments */
+.password-container {
+    position: relative;
+}
+
+.password-container input {
+    padding-right: 40px; /* To leave space for the toggle button */
+}
+
+/* Toggle password icon */
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%; /* Vertical center */
+    transform: translateY(-50%); /* Center the icon vertically */
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Login button */
+.login-btn {
+    background-color: #5ECE96;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.login-btn:hover {
+    background-color: #5ECE96;
+}

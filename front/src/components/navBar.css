@@ -1,0 +1,47 @@
+/* Navbar Styles */
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#030E2A;
+    padding: 10px 20px;
+    color: white;
+    height: 60px;
+    width: 100%; /* Full width */
+    padding: 0 20px; 
+    
+}
+
+.logo-img{
+    width: 60px; 
+    height: auto; 
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #5ECE96;
+}
+
+.profile-icon {
+    cursor: pointer;
+}
+
+.profile-img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+

@@ -1,0 +1,23 @@
+
+services:
+  ai:
+    build:
+      context: ./AI_API
+    ports:
+      - 8010:8010
+
+  backend:
+    build:
+      context: ./backend
+    environment:
+      NODE_ENV: production
+    ports:
+      - 5173:5173
+
+  frontend:
+    build:
+      context: ./devfest-frontend
+    environment:
+      NODE_ENV: production
+    ports:
+      - 5174:5174

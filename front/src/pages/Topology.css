@@ -1,0 +1,91 @@
+
+/*font*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@100;200;300;400;500;600;700;800;900&display=swap');
+body {
+    font-family: 'Roboto Flex', sans-serif; 
+    background-color :white;
+    
+}
+
+
+.content {
+    margin-top: 30px;
+}
+
+.topology-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    position: relative;
+}
+
+.topology-node {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #5ECE96;
+    border-radius: 10px;
+    padding: 20px;
+    width: 80px;
+    height: 80px;
+    background-color: #f9f9f9;
+}
+
+.central-node img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Vertical Line */
+.line-vertical {
+    width: 2px;
+    height: 150px;
+    background-color: #5ECE96;
+    position: absolute;
+    top: 100px;
+}
+
+/* Horizontal Line */
+.line-horizontal {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 400px;
+    margin-top: 123px;
+}
+
+.horizontal-line-left,
+.horizontal-line-right {
+    height: 2px;
+    width: 200px;
+    background-color: #5ECE96;
+}
+
+/* Child nodes for users */
+.topology-connection {
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+    margin-top: 15px;
+}
+
+.child-node {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 20px;
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+}
+
+.child-node img {
+    width: 40px;
+    height: 40px;
+}
+.content{color:white;}
+.Toplogy-container{color:white ;}

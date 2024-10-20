@@ -1,0 +1,124 @@
+NB : all the functions except the sign in need token in headers
+example : useEffect(() => {
+        const fetchUsers = async () => {
+            try {
+                const token = sessionStorage.getItem('accessToken');
+                const response = await fetch("http://localhost:5000/chat", { 
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `${token}`,
+                    }
+                });
+                const responseData = await response.json();
+                if (response.ok) {
+                    setUsers(responseData.data);
+                } else {
+                    navigate(response.status === 500 ? "/Error500" : "/Error");
+                }
+            } catch (error) {
+                console.error("Error fetching users: ", error);
+            }
+        };
+        fetchUsers();
+
+1. Sign In : http://localhost:5000/signIn     NB : you will receive token that you will store on the local storage
+example : if (response.ok) {
+                // Store the access token in sessionStorage
+                sessionStorage.setItem('accessToken', data.token);
+                // Redirect to the chat page upon successful sign-in
+                navigate("/Dashboard");
+
+2. disconnect user : http://localhost:5000/dashboard/:id/disconnect      NB : :id == id of the client that will disconnect 
+
+3. change max user : http://localhost:5000/dashboard/:id/maxClient       NB : :id == id of the client
+
+4. change max server :    http://localhost:5000/dashboard/max           
+
+5. get all clients : http://localhost:5000/dashboard                      
+
+6. get connected clients:  http://localhost:5000/dashboard/connected       
+
+7. nbr users per hour : http://localhost:5000/dashboard/clients-connected-per-hour NB : _id == num hour from 0 to 23 and count = nbr user connected
+
+8. nbr allocations per hour :  http://localhost:5000/dashboard/bandwidth-per-hour   
+
+
+
+9. test allocation ( in postman )  : http://localhost:5000/:id/alocate     NB : :id == id client    
+
+10. bandwidth table ( with socket.io )
+
+// example
+import React, { useEffect, useState } from "react";
+import io from "socket.io-client";
+
+const BandwidthTable = () => {
+    const [bandwidthData, setBandwidthData] = useState([]);
+
+    // Récupérer le token d'authentification (par exemple, depuis le localStorage)
+    const token = sessionStorage.getItem('accessToken'); // Assurez-vous que c'est le bon chemin pour récupérer votre token
+
+    // Se connecter au serveur Socket.IO avec le token
+    const socket = io('http://localhost:5000', {
+        auth: { token: token }
+    });
+
+    useEffect(() => {
+        // Écouter l'événement pour les nouvelles données de bande passante
+        socket.on("newBandwidth", (newBandwidth) => {
+            setBandwidthData((prevData) => [...prevData, newBandwidth]);
+        });
+
+        // Écouter l'événement pour obtenir toutes les données existantes
+        socket.on("bandwidthData", (data) => {
+            setBandwidthData(data);
+        });
+
+        // Nettoyer l'écouteur lors de la destruction du composant
+        return () => {
+            socket.off("newBandwidth");
+            socket.off("bandwidthData");
+        };
+    }, [socket]); // Ajoutez socket à la liste des dépendances
+
+    return (
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Client</th>
+                    <th>Timestamp</th>
+                    <th>Want</th>
+                    <th>Get</th>
+                    <th>Max</th>
+                </tr>
+            </thead>
+            <tbody>
+                {bandwidthData.map((item) => (
+                    <tr key={item._id}>
+                        <td>{item.id_client ? item.id_client._id : "Unknown"}</td>
+                        <td>{new Date(item.timestamp).toLocaleString()}</td>
+                        <td>{item.want}</td>
+                        <td>{item.get}</td>
+                        <td>{item.id_client ? item.id_client.max : "Unknown"}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+    );
+};
+
+export default BandwidthTable;
+
+
+
+
+// NEEDS ON THE BODY :
+1. Sign In : email, password
+
+3. change max user : max
+
+4. change max server :    max                              
+
+9. test allocation ( in postman )  : want
+

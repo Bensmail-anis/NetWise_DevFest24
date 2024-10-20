@@ -1,0 +1,35 @@
+# Virtual environment
+venv/
+env/
+
+# Python files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Environment variables
+.env
+
+# Logs
+*.log
+logs/
+
+# Django database
+db.sqlite3
+
+# Static and media folders
+/staticfiles/
+/media/
+
+# IDE/Editor files
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+Desktop.ini

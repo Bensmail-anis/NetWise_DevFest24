@@ -1,0 +1,117 @@
+/*font*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@100;200;300;400;500;600;700;800;900&display=swap');
+body {
+    font-family: 'Roboto Flex', sans-serif; 
+    background-color: white;
+    
+    
+}
+
+
+
+
+/* Chatbot Container */
+.chatbot-container {
+    width : 100%;
+    height :100%;
+    margin: 40px auto 0;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Messages Container */
+.messages-container {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+/* Message Bubble */
+.message {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    width: fit-content;
+    max-width: 80%;
+}
+
+.message p {
+    margin-left: 10px;
+}
+
+.message.user {
+    background-color: white;
+    color: #5ECE96;
+    border: 2px solid #5ECE96;
+
+    align-self: flex-end;
+    text-align: right;
+    margin-left: auto; /* Ensures the message is pushed to the right */
+}
+
+.message.bot {
+    background-color: #d4edda;
+    align-self: flex-start;
+    text-align: left;
+    margin-right: auto; /* Keeps bot messages aligned to the left */
+}
+
+
+.logo-bot {
+    width: 10px ;
+    height: auto;
+}
+
+/* Input Container */
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-container input {
+    width: 90%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-container button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #5ECE96;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin :30px;
+
+}
+
+.input-container button:hover {
+    
+    background-color: #5ECE96;
+}
+
+
+.logo-placeholder img {
+    width: 50px; /* Set desired width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensures the image fits nicely within its container */
+}
