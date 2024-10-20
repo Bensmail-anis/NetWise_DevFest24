@@ -146,10 +146,11 @@ npm run dev
 
 ### AI Service
 
-1. Activate the virtual environment:
+1. Create and Activate the virtual environment:
 
 ```bash
 cd ../back/AI_API
+python -m venv venv
 .\venv\Scripts\activate
 ```
 
